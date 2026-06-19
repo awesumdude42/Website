@@ -5,18 +5,8 @@ import { NavigationMenu,NavigationMenuItem, NavigationMenuLink, NavigationMenuLi
 import { Separator } from "@/components/ui/separator";
 import  {TypingAnimation}  from "@/components/ui/typing-animation";
 import { ArrowRight, Check, Copyright, Square } from "lucide-react";
-import Link from "next/link";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { useRouter } from "next/navigation";
+import GetStarted from "@/components/get-started";
 
 
 export default function Home() {
@@ -24,7 +14,7 @@ export default function Home() {
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: "smooth"});
   };
-  const router = useRouter()
+  
 
   const fullCol = ["Custom designs, just for YOUR business!","As many web pages as you need!",
     "Support for website anytime while the contract is valid!", "Mobile and Desktop accessibility!","Domain and Deployment setup!",
@@ -46,7 +36,7 @@ export default function Home() {
   },
   {
     value: "item-2",
-    trigger: "Service fees.",
+    trigger: "Service Fees",
     content:
       `The service fee is required to keep the website running. This is the fee for support, and is a monthly fee. Prices are listed in the packages.`,
   },
@@ -60,9 +50,9 @@ export default function Home() {
   },
 ]
 
- 
   return (
     <div>
+
       <section id="intro">
         <NavigationMenu className="flex items-center flex-row h-15 fixed bg-white">
           <NavigationMenuList>
@@ -99,9 +89,7 @@ export default function Home() {
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem className="ml-80">
-                  <Button className="bg-[#0D1936] hover:bg-[#0D1936] w-35 h-10 text-white" onClick={() => router.push('/get-started')}>
-                    Get Started
-                  </Button>
+                  <GetStarted/>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
@@ -124,9 +112,7 @@ export default function Home() {
             One flat initial fee starting at $300, then a service fee starting at $40 per month to keep it running, secure, and updated. No additional charges. No hidden fees. Straight to the point.
           </p>
           <div className="flex flex-row font-mono mt-5">
-              <Button className="bg-[#0D1936] hover:bg-[#0D1936] w-45 h-10 text-white" onClick={() => router.push('/get-started')}>
-                Get Started
-              </Button>  
+              <GetStarted/>
             <Button className="bg-transparent ml-10 hover:bg-transparent  w-35 h-10 text-black" onClick={()=>scrollToSection("packages")}>
               See What's Included
               <ArrowRight/>
@@ -168,9 +154,7 @@ export default function Home() {
                         {el}
                     </div>
                   ))}
-                  <Button className="bg-[#0D1936] hover:bg-[#0D1936] mt-5 w-35 h-10 text-white font-mono" onClick={() => router.push('/get-started')}>
-                      Get Started 
-                  </Button>
+                  <div className="mt-7"><GetStarted/></div>
                 </CardContent>
               </Card>
               
@@ -200,9 +184,7 @@ export default function Home() {
                         {el}
                     </div>
                   ))}
-                  <Button className="bg-[#0D1936] hover:bg-[#0D1936] mt-13 w-35 h-10 text-white font-mono" onClick={() => router.push('/get-started')}>
-                      Get Started 
-                  </Button>
+                  <div className="mt-13"><GetStarted/></div>
                 </CardContent>
               </Card>
             </div>
@@ -231,23 +213,25 @@ export default function Home() {
         </div>
       </section>
       <section id="footer">
+        <Separator orientation="horizontal" className="mt-5"/>
+        <div className = "text-[15px] mt-10 ml-30 flex flex-row">
+            
+          <Square className="size-2.75 mt-1.25 mr-2 rounded-md fill-black"/>
+          <p className="font-bold text-black">Cybercreation Studios</p>
+          <div className="mt-10">
+            footer stuff goes here, too lazy to do rn
+          </div>
+        </div>
+        <div className="p-15 ">
           <Separator orientation="horizontal" className="mt-5"/>
-          <div className = "text-[15px] mt-10 ml-30 flex flex-row">
-              
-            <Square className="size-2.75 mt-1.25 mr-2 rounded-md fill-black"/>
-            <p className="font-bold text-black">Cybercreation Studios</p>
-            <div className="mt-10">
-              footer stuff goes here, too lazy to do rn
-            </div>
+          <div className="text-xs flex flex-row gap-2 ml-10 mt-10">
+            <Copyright size={10} className="mt-0.75"/> 
+            2026 Cybercreation Studios. All rights reserved.
           </div>
-          <div className="p-15 ">
-            <Separator orientation="horizontal" className="mt-5"/>
-            <div className="text-xs flex flex-row gap-2 ml-10 mt-10">
-              <Copyright size={10} className="mt-0.75"/> 
-              2026 Cybercreation Studios LLC. All rights reserved.
-            </div>
-          </div>
+        </div>
       </section>
     </div>
   );
 }
+
+
