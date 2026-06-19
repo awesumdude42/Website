@@ -16,6 +16,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useRouter } from "next/navigation";
 
 
 export default function Home() {
@@ -23,10 +24,13 @@ export default function Home() {
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: "smooth"});
   };
+  const router = useRouter()
 
-  const firstCol = ["Custom designs, just for YOUR business!","As many web pages as you need!",
+  const fullCol = ["Custom designs, just for YOUR business!","As many web pages as you need!",
     "Support for website anytime while the contract is valid!", "Mobile and Desktop accessibility!","Domain and Deployment setup!",
     "SEO for your business."]
+  const lowCol = ["Custom designs, just for YOUR business!","Up to 3 web pages as you need!",
+    "Support for website anytime while the contract is valid!", "Mobile and Desktop accessibility!","Domain and Deployment setup!"]
 
 
 
@@ -36,7 +40,7 @@ export default function Home() {
     trigger: "Buy The Website",
     content:
       `Start with a Consultation with the designers. Detail what you want and wait for a demo. 
-      You will be kept in the loop, and can ask for as much changes as you would like. Then once you are happy with how the website looks,
+      You will be kept in the loop, and can ask for as much changes as you would like. Then,   once you are happy with how the website looks,
        you may purchase the website for the initial fee listed on the package.
         Otherwise, you are able to reject the deal, and walk away without any charges.`,
   },
@@ -95,7 +99,7 @@ export default function Home() {
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem className="ml-80">
-                  <Button className="bg-[#0D1936] hover:bg-[#0D1936] w-35 h-10 text-white">
+                  <Button className="bg-[#0D1936] hover:bg-[#0D1936] w-35 h-10 text-white" onClick={() => router.push('/get-started')}>
                     Get Started
                   </Button>
             </NavigationMenuItem>
@@ -108,7 +112,7 @@ export default function Home() {
               Website Creation,
             </h1>
             <h1 className="mt-2">
-              <TypingAnimation words={["With a Flat Charge For Everyone.", "Without Hidden Fees.", "Without Consulting Fees."]} 
+              <TypingAnimation words={["With a Flat Charge For Everyone.", "No Hidden Fees.", "No Consulting Fees."]} 
               loop 
               typeSpeed={70}
               deleteSpeed={40}
@@ -117,10 +121,10 @@ export default function Home() {
             </h1>
           </div>
           <p className="font-mono text-lg w-160 font-light pt-5">
-            One flat initial fee starting at $400, then a service fee starting at $40 per month to keep it running, secure, and updated. No additional charges. No hidden fees. Straight to the point.
+            One flat initial fee starting at $300, then a service fee starting at $40 per month to keep it running, secure, and updated. No additional charges. No hidden fees. Straight to the point.
           </p>
           <div className="flex flex-row font-mono mt-5">
-              <Button className="bg-[#0D1936] hover:bg-[#0D1936] w-45 h-10 text-white">
+              <Button className="bg-[#0D1936] hover:bg-[#0D1936] w-45 h-10 text-white" onClick={() => router.push('/get-started')}>
                 Get Started
               </Button>  
             <Button className="bg-transparent ml-10 hover:bg-transparent  w-35 h-10 text-black" onClick={()=>scrollToSection("packages")}>
@@ -135,41 +139,75 @@ export default function Home() {
         <div className="flex flex-col mt-20 ml-40 ">
           <div className="font-serif gap-5 text-5xl font-extrabold">
             <h1 className="">
-              The Plan
+              Packages
             </h1>
-            <Card className="w-150 h-fit mt-5 mb-10">
-              <CardHeader>
-                <CardTitle className="text-2xl font-semibold">Complete Package</CardTitle>
-                <CardDescription>All Setup Covered</CardDescription>
-                <CardAction className="bg-black text-white p-2 rounded-md">All-Inclusive!</CardAction>
-              </CardHeader>
-              <CardContent className="font-normal">
-                <div className="flex flex-col ml-10 text-4xl">
-                    <div className="flex flex-row">
-                      <p className="ml-1">Inital</p>
-                      <p className="ml-15">Service</p>
-                      <p className="ml-15">Seasonal</p>
-                    </div>
-                    <div className="flex flex-row">
-                      <p>$500</p>
-                      <p className="ml-20">$75</p>
-                      <p className="ml-30" >$100</p>
-                    </div>
-                </div>
-                <Separator orientation="horizontal" className="mt-5"/>
-                {firstCol.map((el)=>(
-                  <div key ={el} className="font-normal flex flex-row gap-2 mt-3">
-                      <Check size={15} className="mt-0.5" />
-                      {el}
+            <div className="flex flex-row gap-5">
+              <Card className="w-150 h-120 mt-5 mb-10">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-semibold">Complete Package</CardTitle>
+                  <CardDescription>All Setup Covered</CardDescription>
+                  <CardAction className="bg-black text-white p-2 rounded-md">All-Inclusive!</CardAction>
+                </CardHeader>
+                <CardContent className="font-normal">
+                  <div className="flex flex-col ml-10 text-4xl">
+                      <div className="flex flex-row">
+                        <p className="ml-1">Inital</p>
+                        <p className="ml-15">Service</p>
+                        <p className="ml-15">Seasonal</p>
+                      </div>
+                      <div className="flex flex-row">
+                        <p>$500</p>
+                        <p className="ml-20">$75</p>
+                        <p className="ml-30" >$100</p>
+                      </div>
                   </div>
-                ))}
-                <Button className="bg-[#0D1936] hover:bg-[#0D1936] mt-5 w-35 h-10 text-white font-mono">
-                    Get Started 
-                </Button>
-              </CardContent>
-            </Card>
+                  <Separator orientation="horizontal" className="mt-5"/>
+                  {fullCol.map((el)=>(
+                    <div key ={el} className="font-normal flex flex-row gap-2 mt-3">
+                        <Check size={15} className="mt-0.5" />
+                        {el}
+                    </div>
+                  ))}
+                  <Button className="bg-[#0D1936] hover:bg-[#0D1936] mt-5 w-35 h-10 text-white font-mono" onClick={() => router.push('/get-started')}>
+                      Get Started 
+                  </Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="w-150 h-120 mt-5 mb-10">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-semibold">Basic Package</CardTitle>
+                  <CardDescription>Most Needed Things Covered</CardDescription>
+                  <CardAction className="bg-black text-white p-2 rounded-md">Semi-Inclusize!</CardAction>
+                </CardHeader>
+                <CardContent className="font-normal">
+                  <div className="flex flex-col ml-10 text-4xl">
+                      <div className="flex flex-row">
+                        <p className="ml-1">Inital</p>
+                        <p className="ml-15">Service</p>
+                        <p className="ml-15">Seasonal</p>
+                      </div>
+                      <div className="flex flex-row">
+                        <p>$300</p>
+                        <p className="ml-20">$40</p>
+                        <p className="ml-30" >$75</p>
+                      </div>
+                  </div>
+                  <Separator orientation="horizontal" className="mt-5"/>
+                  {lowCol.map((el)=>(
+                    <div key ={el} className="font-normal flex flex-row gap-2 mt-3">
+                        <Check size={15} className="mt-0.5" />
+                        {el}
+                    </div>
+                  ))}
+                  <Button className="bg-[#0D1936] hover:bg-[#0D1936] mt-13 w-35 h-10 text-white font-mono" onClick={() => router.push('/get-started')}>
+                      Get Started 
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
+        </div>
       </section>
       <section id="how it works">
         <Separator orientation="horizontal" className="mt-5"/>
