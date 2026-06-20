@@ -60,21 +60,21 @@ import { useState } from "react";
                         <DialogTitle>
                             Get started
                         </DialogTitle>
-                        <DialogDescription>
+                        <DialogDescription className="mb-3">
                             Give us your contact information, and we will get back to you soon!
                         </DialogDescription>
                     </DialogHeader>
                     <FieldGroup>
                         <Field>
-                            <Label htmlFor="name-1">Your Name <span className="ml-2 text-destructive">*</span> </Label>
+                            <Label htmlFor="name-1">Your Name <span className="text-destructive">*</span> </Label>
                             <Input id="name-1" name="your name" required value={name} onChange={(e)=>setName(e.target.value)} placeholder="Your Name Here"/>
                         </Field>
                         <Field>
-                            <Label htmlFor="bName-1">Business Name <span className="ml-2 text-destructive">*</span> </Label>
+                            <Label htmlFor="bName-1">Business Name <span className="text-destructive">*</span> </Label>
                             <Input id="bName-1" name="bName" required value={bName} onChange={(e)=>setBName(e.target.value)} placeholder="Business Name"/>
                         </Field>
                         <Field>
-                            <Label htmlFor="package-1">Package <span className="ml-2 text-destructive">*</span> </Label>
+                            <Label htmlFor="package-1">Package <span className="text-destructive">*</span> </Label>
                             <Select value={tierPackage} required onValueChange={setPackage}>
                                 <SelectTrigger className="w-45">
                                     <SelectValue placeholder="Select Package"/>
@@ -88,8 +88,8 @@ import { useState } from "react";
                             </Select>
                         </Field>
                         <Field>
-                            <Label htmlFor="email-1">Reply Email <span className="ml-2 text-destructive">*</span> </Label>
-                            <Input id="email-1" name="email" type="email required value={email} onChange={(e)=>setEmail(e.target.value)}  placeholder="Email"/>
+                            <Label htmlFor="email-1">Reply Email <span className="text-destructive">*</span> </Label>
+                            <Input id="email-1" name="email" type="email" required value={email} onChange={(e)=>setEmail(e.target.value)}  placeholder="Email"/>
                         </Field>
                         <Field>
                             <Label htmlFor="message-1">Message</Label>

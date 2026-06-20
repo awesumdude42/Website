@@ -184,7 +184,7 @@ export default function Home() {
                         {el}
                     </div>
                   ))}
-                  <div className="mt-13"><GetStarted/></div>
+                  <div className="mt-15"><GetStarted/></div>
                 </CardContent>
               </Card>
             </div>
