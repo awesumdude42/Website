@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 
 
 
-const resend = new Resend(process.env.SRESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) { 
   try { 
@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     const { data, error } = await resend.emails.send({ 
         
         from: 'onboarding@resend.dev',
-        to: 'sammyiyers@gmail.com',
+        to: 'cybercreationstudios@gmail.com',
         subject: `New Possible Client: ${businessName}`, 
         html: ` 
         <p><strong>Name:</strong> ${name}</p> 
